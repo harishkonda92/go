@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"geometry/rectangle" // this is how we import a custom package
+	"fmt" // this is how we import a custom package
 	"log"
 )
 
@@ -19,6 +18,8 @@ func init() {
 
 }
 func main() {
+	// fmt.Printf("area of a rectangle %.2f", rectangle.Area(rectLen, rectWidth))
+
 	/*
 		if else blocks
 	*/
@@ -53,15 +54,48 @@ func main() {
 	/*
 		labels in for loop
 	*/
-outer:
-	for i := 0; i < 3; i++ {
-		for j := 1; j < 4; j++ {
-			fmt.Printf("i = %d, j = %d \n", i, j)
-			if i == j {
-				break outer
-			}
-		}
+	// outer:
+	// 	for i := 0; i < 3; i++ {
+	// 		for j := 1; j < 4; j++ {
+	// 			fmt.Printf("i = %d, j = %d \n", i, j)
+	// 			if i == j {
+	// 				break outer
+	// 			}
+	// 		}
+	// 	}
+
+	/*
+		Switch case in go
+	*/
+
+	// finger := 3
+	// switch finger {
+	// case 1:
+	// 	fmt.Println("thumb")
+	// case 4:
+	// 	fmt.Println("its working ", finger)
+	// case 3, 5:
+	// 	fmt.Println("its multiple cases")
+	// default:
+	// 	fmt.Println("its default")
+	// }
+
+	// fall through
+
+	switch num := number(); {
+	case num < 50:
+		fmt.Printf("%d is lesser than 50 \n", num)
+		fallthrough
+	case num < 100:
+		fmt.Printf("%d is lesser than 100 \n", num)
+		fallthrough
+	case num < 200:
+		fmt.Printf("%d is lesser than 200 \n", num)
 	}
 
-	fmt.Printf("area of a rectangle %.2f", rectangle.Area(rectLen, rectWidth))
+}
+
+func number() int {
+	num := 15 * 5
+	return num
 }
